@@ -18,6 +18,7 @@ function App() {
                 >
                     Learn React
                 </a>
+                <p>Isto é muito fixe</p>
             </header>
         </div>
     );
