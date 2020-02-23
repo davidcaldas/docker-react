@@ -8,3 +8,16 @@ before_install:
 
 script:
     - docker run -e CI=true djcaldas/docker-react npm run test
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: 'us-east-1'
+    app: 'docker' #nome que foi dado a app no AWS
+    env: 'Docker-env' #nome do ambieente que foi dado no AWS
+    bucket_name: 'elasticbeanstalk-us-east-1-356420519130' #pesquisar por S3 e la aparece os bucketa
+    bucket_path: 'docker' #pasta da app, igual ao que foi definido em "app"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
